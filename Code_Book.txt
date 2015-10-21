@@ -1,0 +1,124 @@
+#  Code_Book.txt
+#  Created by Chad Junkermeier on 10/20/15.
+#  Copyright © 2015 Chad Junkermeier. All rights reserved.
+
+###############################################################
+Study Design
+###############################################################
+The original data comes from The University of California-Irvine's Center for Machine Learning and Intelligent Systems.  More information about how the data was collected can be found at:
+
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
+The original data can be downloaded from: 
+
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+
+The R script called run_analysis.R does the following:
+
+*   Merges the training and the test sets to create one data set.
+*   Extracts only the measurements on the mean and standard deviation for each measurement. 
+*   Uses descriptive activity names to name the activities in the data set
+*   Appropriately labels the data set with descriptive variable names. 
+*   From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+
+The R script used to tidy the data, run_analysis.R, is fully commented giving more explicit detail about how the above steps were performed.
+
+
+
+###############################################################
+Code Book 
+###############################################################
+This section specifies the Column Names and the Units associated (when known) with the experimental value of each column.  Unfortunately, the documentation of the original data doesn't specify the units used with the accelerometer.  Nor do we know the untis used in the gyro based jerk values-though in this case it may be radians/second/second.
+
+I am using the names that were provided in the original data, with a slight two slight changes, as part of my tidy data because then there is less chance of question as to what values are being transfered from the original dataset into my new data frame.  The changes are needed to make R play nicely with them.  The changes are to substitute "()" with "" and "-" with "_".
+
+
+Column Name                             Units             Data Type
+==================                     ===============    =============
+"Subject_ID"                           [Unitless]         [Categorical]
+"activity_labels"                      [Unitless]         [Categorical]
+"tBodyAcc_mean_X"                      [unknown units]    [Continuous]
+"tBodyAcc_mean_Y"                      [unknown units]    [Continuous]
+"tBodyAcc_mean_Z"                      [unknown units]    [Continuous]
+"tBodyAcc_std_X"                       [unknown units]    [Continuous]
+"tBodyAcc_std_Y"                       [unknown units]    [Continuous]
+"tBodyAcc_std_Z"                       [unknown units]    [Continuous]
+"tGravityAcc_mean_X"                   [unknown units]    [Continuous]
+"tGravityAcc_mean_Y"                   [unknown units]    [Continuous]
+"tGravityAcc_mean_Z"                   [unknown units]    [Continuous]
+"tGravityAcc_std_X"                    [unknown units]    [Continuous]
+"tGravityAcc_std_Y"                    [unknown units]    [Continuous]
+"tGravityAcc_std_Z"                    [unknown units]    [Continuous]
+"tBodyAccJerk_mean_X"                  [unknown units]    [Continuous]
+"tBodyAccJerk_mean_Y"                  [unknown units]    [Continuous]
+"tBodyAccJerk_mean_Z"                  [unknown units]    [Continuous]
+"tBodyAccJerk_std_X"                   [unknown units]    [Continuous]
+"tBodyAccJerk_std_Y"                   [unknown units]    [Continuous]
+"tBodyAccJerk_std_Z"                   [unknown units]    [Continuous]
+"tBodyGyro_mean_X"                     [radians/second]   [Continuous]
+"tBodyGyro_mean_Y"                     [radians/second]   [Continuous]
+"tBodyGyro_mean_Z"                     [radians/second]   [Continuous]
+"tBodyGyro_std_X"                      [radians/second]   [Continuous]
+"tBodyGyro_std_Y"                      [radians/second]   [Continuous]
+"tBodyGyro_std_Z"                      [radians/second]   [Continuous]
+"tBodyGyroJerk_mean_X"                 [unknown units]    [Continuous]
+"tBodyGyroJerk_mean_Y"                 [unknown units]    [Continuous]
+"tBodyGyroJerk_mean_Z"                 [unknown units]    [Continuous]
+"tBodyGyroJerk_std_X"                  [unknown units]    [Continuous]
+"tBodyGyroJerk_std_Y"                  [unknown units]    [Continuous]
+"tBodyGyroJerk_std_Z"                  [unknown units]    [Continuous]
+"tBodyAccMag_mean"                     [unknown units]    [Continuous]
+"tBodyAccMag_std"                      [unknown units]    [Continuous]
+"tGravityAccMag_mean"                  [unknown units]    [Continuous]
+"tGravityAccMag_std"                   [unknown units]    [Continuous]
+"tBodyAccJerkMag_mean"                 [unknown units]    [Continuous]
+"tBodyAccJerkMag_std"                  [unknown units]    [Continuous]
+"tBodyGyroMag_mean"                    [radians/second]   [Continuous]
+"tBodyGyroMag_std"                     [radians/second]   [Continuous]
+"tBodyGyroJerkMag_mean"                [unknown units]    [Continuous]
+"tBodyGyroJerkMag_std"                 [unknown units]    [Continuous]
+"fBodyAcc_mean_X"                      [unknown units]    [Continuous]
+"fBodyAcc_mean_Y"                      [unknown units]    [Continuous]
+"fBodyAcc_mean_Z"                      [unknown units]    [Continuous]
+"fBodyAcc_std_X"                       [unknown units]    [Continuous]
+"fBodyAcc_std_Y"                       [unknown units]    [Continuous]
+"fBodyAcc_std_Z"                       [unknown units]    [Continuous]
+"fBodyAcc_meanFreq_X"                  [unknown units]    [Continuous]
+"fBodyAcc_meanFreq_Y"                  [unknown units]    [Continuous]
+"fBodyAcc_meanFreq_Z"                  [unknown units]    [Continuous]
+"fBodyAccJerk_mean_X"                  [unknown units]    [Continuous]
+"fBodyAccJerk_mean_Y"                  [unknown units]    [Continuous]
+"fBodyAccJerk_mean_Z"                  [unknown units]    [Continuous]
+"fBodyAccJerk_std_X"                   [unknown units]    [Continuous]
+"fBodyAccJerk_std_Y"                   [unknown units]    [Continuous]
+"fBodyAccJerk_std_Z"                   [unknown units]    [Continuous]
+"fBodyAccJerk_meanFreq_X"              [unknown units]    [Continuous]
+"fBodyAccJerk_meanFreq_Y"              [unknown units]    [Continuous]
+"fBodyAccJerk_meanFreq_Z"              [unknown units]    [Continuous]
+"fBodyGyro_mean_X"                     [radians/second]   [Continuous]
+"fBodyGyro_mean_Y"                     [radians/second]   [Continuous]
+"fBodyGyro_mean_Z"                     [radians/second]   [Continuous]
+"fBodyGyro_std_X"                      [radians/second]   [Continuous]
+"fBodyGyro_std_Y"                      [radians/second]   [Continuous]
+"fBodyGyro_std_Z"                      [radians/second]   [Continuous]
+"fBodyGyro_meanFreq_X"                 [radians/second]   [Continuous]
+"fBodyGyro_meanFreq_Y"                 [radians/second]   [Continuous]
+"fBodyGyro_meanFreq_Z"                 [radians/second]   [Continuous]
+"fBodyAccMag_mean"                     [unknown units]    [Continuous]
+"fBodyAccMag_std"                      [unknown units]    [Continuous]
+"fBodyAccMag_meanFreq"                 [unknown units]    [Continuous]
+"fBodyBodyAccJerkMag_mean"             [unknown units]    [Continuous]
+"fBodyBodyAccJerkMag_std"              [unknown units]    [Continuous]
+"fBodyBodyAccJerkMag_meanFreq"         [unknown units]    [Continuous]
+"fBodyBodyGyroMag_mean"                [radians/second]   [Continuous]
+"fBodyBodyGyroMag_std"                 [radians/second]   [Continuous]
+"fBodyBodyGyroMag_meanFreq"            [radians/second]   [Continuous]
+"fBodyBodyGyroJerkMag_mean"            [radians/second]   [Continuous]
+"fBodyBodyGyroJerkMag_std"             [radians/second]   [Continuous]
+"fBodyBodyGyroJerkMag_meanFreq"        [radians/second]   [Continuous]
+
+
+
+
+
